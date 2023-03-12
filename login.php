@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js"></script>
     <title>RealTime Chat Application </title>
 </head>
 <body>
@@ -35,6 +34,7 @@
 <div class="link">Already sign up <a href="index.php">sign in</a></div>
 </form>
     </section>
+    <script src="script.js"></script>
 </div>
 </body>
 </html>
