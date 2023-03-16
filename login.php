@@ -18,12 +18,12 @@
 
     <div class="field input">
         <label >Email Name</label>
-        <input type="email" placeholder=" enter your email " name="email">
+        <input type="email" name="email"  placeholder=" enter your email ">
     </div>
   
     <div class="field input">
         <label >password</label>
-        <input type="password" placeholder="enter your password">
+        <input type="password"  name="password" placeholder="enter your password">
         <i class="fas fa-eye"></i>
     </div>
     <div class="field button">
@@ -34,7 +34,7 @@
 <div class="link">Already sign up <a href="index.php">sign in</a></div>
 </form>
     </section>
-    <script src="script.js"></script>
+    <script src="javascript/sign-in.js"></script>
 </div>
 </body>
 </html>

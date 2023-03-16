@@ -10,7 +10,7 @@ $password=mysqli_real_escape_string($connection,$_POST['password']);
 if(!empty($fname) && !empty($lname) && !empty($email) && !empty($password) )
 {
   if (filter_var($email,FILTER_VALIDATE_EMAIL)) {
-$sql=mysqli_query($connection,"SELECT email from users WHERE email '{$email}");
+$sql=mysqli_query($connection,"SELECT email from users WHERE email ='{$email}'");
 
 if(mysqli_num_rows($sql)>0){
     // check  if email already exists
@@ -19,9 +19,9 @@ if(mysqli_num_rows($sql)>0){
     if(isset($_FILES['image'])){
         $img_name=$_FILES['image']['name'];
         $img_type=$_FILES['image']['type'];
-        $img_tmp=$_FILES['image']['img_tmp'];
+        $tmp_name=$_FILES['image']['tmp_name'];
 
-        // explode image
+        // explode image and get last extension of file i.e jpg,png
         $img_explode=explode('.', $img_name);
         $img_ext=end($img_explode);
 //image extension png,jpeg,jpg
@@ -31,15 +31,15 @@ if(in_array($img_ext,$img_extensions)==true){
     // image will return current time
     $time=time();
  
-    $new_image_name=$img_name.$time;
-    if (move_uploaded_file($img_tmp,'images'.$new_image_name)) {
+    $new_image_name=$time.$img_name;
+    if (move_uploaded_file($tmp_name,'images/'.$new_image_name)) {
         $status ="Active now";
         $random_id=rand(time(),1000000);
          // insertig user data   
          //status
          $sql2=mysqli_query($connection,"INSERT into users (unique_id,fname,lname,email,password,file,status)
-         values('{$random_id}','{$fname}','{$lname}','{$email}','{$password}','{$new_img_name}','{$status}' )   ");
-    }
+         values('{$random_id}','{$fname}','{$lname}','{$email}','{$password}','{$new_image_name}','{$status}' )   ");
+ 
     if($sql2) {
     # code...
     $sql3=mysqli_query($connection,"SELECT * FROM users WHERE email ='{$email}'");
@@ -61,6 +61,7 @@ if(in_array($img_ext,$img_extensions)==true){
  
   }
 
+}
 }
 else {
     //check all input

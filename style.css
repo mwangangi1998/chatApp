@@ -46,7 +46,7 @@ body {
     border-radius: 5px;
     margin-bottom: 10px;
     border: 1px solid #f5c6cb;
-    display: none;
+
 }
 
 .form form .name-details {
@@ -260,6 +260,7 @@ form .name-details .field:last-child {
     height: 40px;
     width: 40px;
 }
+
 /* status online */
 .user a .status-dot .fa-circle {
     background: #0aeb3b;
